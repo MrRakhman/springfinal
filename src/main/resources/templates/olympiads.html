@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div layout:fragment="content">
+  <div class="row" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+    <div class="col-6 mx-auto">
+      <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.success!=null}">
+        Olympiad is added!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <h1 class="text-center">Add Olympiad</h1>
+      <form th:action="${'add-olympiad'}" method="post">
+        <div class="row">
+          <div class="col-12">
+            <label>Olympiad Name*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <input class="form-control" type="text" name="olympiad_title" required>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label>Olympiad Description*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <input class="form-control" type="text" name="olympiad_description" required>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label>Max rating to participate*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <input class="form-control" type="text" name="limitation" required>
+          </div>
+        </div>
+          <div class="row mt-2">
+              <div class="col-12">
+                  <button class="btn btn-success">Submit</button>
+              </div>
+          </div>
+      </form>
+    </div>
+  </div>
+  <h1 class="text-center"> Past Olympiads</h1>
+  <div class="row">
+    <div class="col-sm-4" th:each="olympiad: ${olympiads}">
+      <div class="card text-center" style = "margin: 4px;">
+        <div class="card-header">
+          Author: <a><b th:text="${olympiad.author.fullName}"></b></a>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title" th:text="${olympiad.title}"></h5>
+          <p class="card-text" th:text="${olympiad.description}"></p>
+          <p class="card-text">Max rating to participate:  <b th:text="${olympiad.limitation}"></b></p>
+          <a th:href="@{'/olympiad/' + ${olympiad.id}}" class="btn btn-light">Open</a>
+        </div>
+        <div class="card-footer text-muted">
+          Winner: <a href = '/accounts/'></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

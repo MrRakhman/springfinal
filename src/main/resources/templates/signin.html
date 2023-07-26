@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+    </head>
+    <div layout:fragment="content">
+        <form method="post" th:action="@{'/to-enter'}">
+            <div class="row">
+                <div class="row">
+                    <div class="col-12">
+                        <label>EMAIL: </label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input class="form-control" type="email" name = "user_email" placeholder="Email: ">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label>PASSWORD: </label>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <input class="form-control" type="password" name="user_password" placeholder="Password: ">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <button class="btn btn-primary">SIGN IN</button>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <a href="#">Forgot link or password?</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</html>

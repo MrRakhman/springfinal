@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div layout:fragment="content">
+    <div class="container" style="background-color: #3398E1; height: auto;
+         padding-bottom: 15px; box-shadow: 0 16px 48px #E3E7EB; padding-top: 10px;">
+        <div class="row">
+            <div class="col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white"> MathForces Blog </h3>
+                    <p class="text-light">Here you can find math news, articles and website updates. &nbsp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" th:each="blog: ${blogs}">
+        <div class="row">
+            <!-- Blog Entries Column -->
+            <div class="col-md-8 mt-3 left">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h2 class="card-title" th:text="${blog.title}"></h2>
+                        <p class="card-text text-muted h6" th:text="${blog.date}">
+                            <a href = "/accounts/admin/">admin</a></p>
+                        <p class="card-text" th:text="${blog.description}"></p>
+                        <a href="/blog/money-prizes-problem-creators/" class="btn btn-primary">Continue reading &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

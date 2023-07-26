@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div layout:fragment="content">
+    <div class="col my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Recent news</h6>
+        <div class="media text-muted pt-3">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">
+                        <a href = "/blog/money-prizes-problem-creators/">Monetary Compensation for Problem Authors </a>
+                    </strong>
+                    <a href="/blog/money-prizes-problem-creators/">View</a>
+                </div>
+                <span class="d-block">Author: <a href = "/accounts/admin/">admin</a> | <a target="_blank" href = "https://www.timeanddate.com/worldclock/fixedtime.html?day=12&month=11&year=2020&hour=3&min=38&sec=0&p1=382" >Nov. 12, 2020, 3:38 a.m. (GMT +6)</a> | Website News</span>
+                <p style = "color:black;">Monetary Compensation for Problem Authors <a href = "/blog/money-prizes-problem-creators/">Continue reading...</a></p>
+            </div>
+        </div>
+
+        <div class="media text-muted pt-3">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">
+                        <a href = "/blog/rezultaty-serii-qarantin/"> Camp olympiad results </a>
+                    </strong>
+                    <a href="/blog/rezultaty-serii-qarantin/">View</a>
+                </div>
+                <span class="d-block">
+                    Author: <a href = "/accounts/mathforces/">mathforces</a> |
+                    <a target="_blank"
+                       href = "https://www.timeanddate.com/worldclock/fixedtime.html?day=10&month=5&year=2020&hour=6&min=33&sec=0&p1=382" >May 10, 2020, 6:33 a.m. (GMT +6)</a> | Website News</span>
+                <p style = "color:black;">Results of 4 olympiads <a href = "/blog/rezultaty-serii-qarantin/">Continue reading...</a></p>
+            </div>
+        </div>
+
+        <div class="media text-muted pt-3">
+            <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                <div class="d-flex justify-content-between align-items-center w-100">
+                    <strong class="text-gray-dark">
+                        <a href = "/blog/otchet-ot-5-maya-2020/"> May 5 Statistics </a>
+                    </strong>
+                    <a href="/blog/otchet-ot-5-maya-2020/">View</a>
+                </div>
+                <span class="d-block">Author: <a href = "/accounts/mathforces/">
+                    mathforces</a> |
+                    <a target="_blank"
+                       href = "https://www.timeanddate.com/worldclock/fixedtime.html?day=6&month=5&year=2020&hour=8&min=55&sec=0&p1=382" >May 6, 2020, 8:55 a.m. (GMT +6)</a> | Website News</span>
+                <p style = "color:black;">Weekly updates <a href = "/blog/otchet-ot-5-maya-2020/">Continue reading...</a></p>
+            </div>
+        </div>
+        <small class="d-block text-right mt-3">
+            <a href="/blog/">All news</a>
+        </small>
+    </div>
+
+    <div class="col my-3 p-3 bg-white rounded shadow-sm">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Current olympiads</h6>
+        Currently, there is no olympiad. However, you can
+        <a href = "/problems/">solve </a> problems from previous olympiads!
+        <small class="d-block text-right mt-3">
+            <a href="/olympiads/">All olympiads</a>
+        </small>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col my-3 p-3 bg-white rounded shadow-sm">
+                <h6 class="border-bottom border-gray pb-2 mb-0">Upcoming olympiads</h6>
+                Currently, there is no olympiad. However, you can
+                <a href = "/problems/">solve </a> problems from previous olympiads!
+                <small class="d-block text-right mt-3">
+                    <a href="/olympiads/">All olympiads</a>
+                </small>
+            </div>
+            <div class="col-1"></div>
+            <div class="col my-3 p-3 bg-white rounded shadow-sm">
+                <h6 class="border-bottom border-gray pb-2 mb-0">Past olympiads</h6>
+                <div class="media text-muted pt-3">
+                    <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark"><a href = "/olympiads/42"> EMC Qualification: Kazakhstan </a></strong>
+                            <a href="/olympiads/42">View</a>
+                        </div>
+                        <p class="card-text">Max rating to participate:  <b>unlimited</b>  </p>
+                        <span class="d-block">EMC Qualification: Kazakhstan</span>
+
+                    </div>
+                </div>
+
+                <div class="media text-muted pt-3">
+                    <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark"><a href = "/olympiads/41"> MathForces Round 20 </a></strong>
+                            <a href="/olympiads/41">View</a>
+                        </div>
+                        <p class="card-text">Max rating to participate:  <b>unlimited</b>  </p>
+                        <span class="d-block">Mathforces 20</span>
+
+                    </div>
+                </div>
+
+                <div class="media text-muted pt-3">
+                    <svg class="bd-placeholder-img mr-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 32x32"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+                    <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <div class="d-flex justify-content-between align-items-center w-100">
+                            <strong class="text-gray-dark"><a href = "/olympiads/40"> MathForces Round 19: Raccoons </a></strong>
+                            <a href="/olympiads/40">View</a>
+                        </div>
+                        <p class="card-text">Max rating to participate:  <b>unlimited</b>  </p>
+                        <span class="d-block">Mathforces 19</span>
+                    </div>
+                </div>
+                <small class="d-block text-right mt-3">
+                    <a href="/olympiads/">All olympiads</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+</html>

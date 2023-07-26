@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div layout:fragment="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title mb-4">
+              <div class="d-flex justify-content-start">
+                <div class="image-container">
+                  <img src="/images/defacc.png" id="imgProfile" style="width: 150px;
+                  height: auto; max-height: 300px;" class="img-thumbnail">
+                </div>
+                <div class="userData ml-3" style="margin-left: 10px;">
+                  <p class="d-block  btn btn-primary">375295084661</p>
+                  <h6 class="d-block"> Olympiad Rating: <b th:text="${user.olympiadRating}"></b> </h6>
+                  <h6 class="d-block"> Problem rating: <b th:text="${user.problemRating}"></b> </h6>
+                  <h6 class="d-block"> Contribution: <b th:text="${user.contributionRating}"></b> </h6>
+                </div>
+
+                <div class="ml-auto">
+                  <input type="button" class="btn btn-primary d-none" id="btnDiscard" value="Discard Changes" />
+                </div>
+              </div>
+              <br>
+              <h6 class="d-block"> Country: <b th:text="${user.country}"></b></h6>
+              <h6 class="d-block"> Occupation: <b th:text="${user.occupation}"></b></h6>
+              <h6 class="d-block"> About: </h6>
+            </div>
+
+            <div class="container mt-3">
+              <br>
+              <!-- Nav tabs -->
+              <ul class="nav nav-tabs">
+                <li class="nav-item">
+                  <a class="nav-link active" data-toggle="tab" href="#results">Olympiads</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#info">Problems</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#games">Games</a>
+                </li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                <div id="results" class="container tab-pane active"><br>
+                  <h3>Olympiads</h3>
+                </div>
+                <div id="info" class="container tab-pane fade"><br>
+                  <h3>Problems solved: 0</h3>
+                </div>
+                <div id="games" class="container tab-pane fade"><br>
+                  <h3>Games</h3>
+                  <p>Under construction</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>

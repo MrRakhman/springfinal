@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div layout:fragment="content">
+  <div class="container">
+    <div class="row">
+      <div class="col text-center">
+        <div class="container p-3 my-3 bg-primary text-white">
+          <h2 th:text="${olympiad.title}"></h2>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center">
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-pencil-square-o fa-2x"></i>
+          <h2 class="timer count-title count-number" data-to="100" data-speed="1500"></h2>
+          <p class="count-text ">Author:
+            <a th:href = "@{'/specific_user_page/' + ${olympiad.author.id}}">
+              <b th:text="${olympiad.author.fullName}"></b>
+            </a>
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-users fa-2x"></i>
+          <p class="count-text ">Number of participants:
+            <b th:text="${olympiad.limitation}"></b><br>&nbsp;
+          </p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-sort-numeric-up fa-2x"></i>
+          <p class="count-text ">Max rating to participate:  <b>&#8734</b>
+            <br>&nbsp;</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-calendar-o fa-2x"></i>
+          <p class="count-text ">Start:
+            <a target="_blank" href = "https://www.timeanddate.com/worldclock/fixedtime.html?day=6&month=12&year=2020&hour=18&min=0&sec=0&p1=382" > Dec. 6, 2020, 6 p.m.  <br>(GMT+6)</a></p>
+        </div></div>
+      <div class="col">
+        <div class="counter">
+          <i class="fa fa-clock-o fa-2x"></i>
+          <p class="count-text ">End: <a target="_blank" href = "https://www.timeanddate.com/worldclock/fixedtime.html?day=6&month=12&year=2020&hour=20&min=0&sec=0&p1=382" > Dec. 6, 2020, 8 p.m. <br>(GMT +6)</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</html>
+
+<style>
+  .counter {
+    background-color:#f5f5f5;
+    padding: 20px 0;
+    border-radius: 5px;
+  }
+
+  .count-title {
+    font-size: 40px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .count-text {
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: 10px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .fa-2x {
+    margin: 0 auto;
+    float: none;
+    display: table;
+    color: #4ad1e5;
+  }
+</style>

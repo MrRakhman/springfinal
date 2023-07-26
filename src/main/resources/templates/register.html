@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+
+<div layout:fragment="content">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${param.passworderror!=null}">
+        Passwords are not same!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${param.emailerror!=null}">
+        This Email is already in use!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.success!=null}">
+        Registration completed successfully!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      <form th:action="@{'/register'}" method="post">
+        <div class="row">
+          <div class="col-12">
+            <label>Your full name*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <input type="login" class="form-control" name="full_name" required>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label>Your login*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <input type="login" class="form-control" name="user_login" required>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label>Your email*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <input type="login" class="form-control" name = "user_email" required>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label>Your password*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <input type="password" class="form-control" required name="user_password">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label>Confirm password*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <input type="password" class="form-control" required name="user_repeat_password">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label>Occupation*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <select class="form-control" name="occupation">
+              <option>Elementary School (Grades 1-5)</option>
+              <option>Middle School (Grades 6-9)</option>
+              <option>High School (Grades 10-12)</option>
+              <option>Undergraduate Student</option>
+              <option>Graduate Student</option>
+              <option>Teacher</option>
+              <option>Financial Industry</option>
+              <option>Computer Scientist</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <label>Country*</label>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <select class="form-control" id="countrySelect" name="country">
+              <option th:each="country:${countriesList}"
+                      th:value="${country}"
+                      th:text="${country}">
+              </option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12">
+            <button class="btn btn-success" type="submit">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</html>

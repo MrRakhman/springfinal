@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="layout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div layout:fragment="content">
+  <h3 class="text-center mb-3">List of Users:</h3>
+  <!--- Users Table --->
+  <div class="row">
+    <div class="col-12 mx-auto">
+      <table class="table table-striped table-bordered sortable">
+        <thead class="thead-light ">
+          <tr>
+            <th>Login</th>
+            <th>Overall Rating</th>
+            <th>Olympiad Rating</th>
+            <th>Problem Rating</th>
+            <th>Contribution Rating</th>
+            <th>Occupation</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody th:each="user:${users}">
+          <tr>
+            <td> <a class="btn btn-outline-primary" th:text="${user.login}"
+                    th:href="@{'/specific_user_page/' + ${user.id}}"></a> </td>
+            <td> <b th:text="${user.overallRating}"> </b> </td>
+            <td th:text="${user.olympiadRating}"></td>
+            <td th:text="${user.problemRating}"></td>
+            <td th:text="${user.contributionRating}"></td>
+            <td th:text="${user.occupation}"></td>
+            <td th:text="${user.country}"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div layout:fragment="content">
+    <div class="row" sec:authorize="isAuthenticated()">
+        <div class="col-6 mx-auto">
+            <div class="alert alert-success alert-dismissible fade show" role="alert" th:if="${param.success!=null}">
+                Your answer is correct!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${param.failure!=null}">
+                Your answer is not correct!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <div class="alert alert-primary alert-dismissible fade show" role="alert" th:if="${param.solved!=null}">
+                Your have already solved the problem!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <h2 class="text-center" th:text="${problem.name}"></h2>
+            <h8 class="text-center">Author: <b th:text="${problem.author.fullName}"></b></h8>
+            <h8 class="text-center">Problem has been solved: <b th:text="${problem.solvedUsersCount}"></b> times</h8>
+            <p class="text-center" th:text="${problem.description}"></p>
+            <form th:action="@{'/submit-answer'}" method="post">
+                <input type="hidden" name="problemId" th:value="${problem.id}">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Answer: </span>
+                    </div>
+                    <input type="number" class="form-control"
+                           placeholder="Enter non-negative integer number" aria-label="Answer" name="users_answer">
+                    <div class="input-group-append">
+                        <button class="btn btn-outline-secondary" type="submit" >Check</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</html>
