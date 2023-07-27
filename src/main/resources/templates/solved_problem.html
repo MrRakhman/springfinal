@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<div layout:fragment="content">
+  <div class="row" sec:authorize="isAuthenticated()">
+    <div class="col-6 mx-auto">
+      <h2 class="text-center" th:text="${problem.name}"></h2>
+      <h8 class="text-center">Author: <b th:text="${problem.author.fullName}"></b></h8>
+      <h8 class="text-center">Problem has been solved: <b th:text="${problem.solvedUsersCount}"></b> times</h8>
+      <p class="text-center" th:text="${problem.description}"></p>
+      <div class="container align-content-center" style="background-color: deepskyblue">
+        <h3 class="text-center text-white">Problem is solved!</h3>
+      </div>
+    </div>
+  </div>
+</div>
+</html>
