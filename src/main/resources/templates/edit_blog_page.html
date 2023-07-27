@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorate="layout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div layout:fragment="content">
+    <div class="row mb-3" sec:authorize="hasAnyRole('ROLE_ADMIN')">
+        <div class="col-12 mx-auto">
+            <form th:action="@{'/edit-blog'}" method="post">
+                <input type="hidden" name = "blogId" th:value="${Blog.id}">
+                <h2 class="text-center">Edit blog</h2>
+                <div class="row">
+                    <div class="col-12">
+                        <label>Blog title</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input class="form-control" type="text" name="blog_title" th:value="${Blog.title}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <label>Blog content</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <input class="form-control" type="text" name="blog_content" rows="8" th:value="${Blog.content}">
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-12">
+                        <button class="btn btn-primary">Update Blog</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</html>

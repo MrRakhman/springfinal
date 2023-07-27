@@ -21,7 +21,7 @@
                   height: auto; max-height: 300px;" class="img-thumbnail">
                 </div>
                 <div class="userData ml-3" style="margin-left: 10px;">
-                  <p class="d-block  btn btn-primary">375295084661</p>
+                  <p class="d-block  btn btn-primary" th:text="${user.login}"></p>
                   <h6 class="d-block"> Olympiad Rating: <b th:text="${user.olympiadRating}"></b> </h6>
                   <h6 class="d-block"> Problem rating: <b th:text="${user.problemRating}"></b> </h6>
                   <h6 class="d-block"> Contribution: <b th:text="${user.contributionRating}"></b> </h6>

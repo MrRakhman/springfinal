@@ -4,6 +4,8 @@ package kz.bitlab.techboot.springfinal.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
@@ -19,11 +21,11 @@ public class Blog {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "date")
-    private Date date;
+    @Column(name = "post_date")
+    private String postDate;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "content")
+    private String content;
 
     @ManyToOne
     private User author;

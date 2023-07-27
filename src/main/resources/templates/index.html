@@ -10,7 +10,7 @@
 </head>
 <div layout:fragment="content">
     <div class="container" style="background-color: #3398E1; height: auto;
-         padding-bottom: 15px; box-shadow: 0 16px 48px #E3E7EB; padding-top: 10px;">
+         padding-bottom: 15px; box-shadow: 0 16px 36px #E3E7EB; padding-top: 10px;">
         <div class="row">
             <div class="col-md-8 col-md-10 mx-auto">
                 <div class="site-heading">
@@ -26,11 +26,15 @@
             <div class="col-md-8 mt-3 left">
                 <div class="card mb-4">
                     <div class="card-body">
-                        <h2 class="card-title" th:text="${blog.title}"></h2>
-                        <p class="card-text text-muted h6" th:text="${blog.date}">
-                            <a href = "/accounts/admin/">admin</a></p>
-                        <p class="card-text" th:text="${blog.description}"></p>
-                        <a href="/blog/money-prizes-problem-creators/" class="btn btn-primary">Continue reading &rarr;</a>
+                        <h2 class="card-title mb-2" th:text="${blog.title}"></h2>
+                        <p class="card-text" th:text="${blog.content}"></p>
+                        <p class="mt-2">
+                            Posted by <a th:href="@{'/specific_user_page/' + ${blog.author.id}}">
+                            <b th:text="${blog.author.fullName}"></b></a>
+                            at <b th:text="${blog.postDate}"></b>
+                        </p>
+                        <a th:href="@{'/blog/' + ${blog.id}}" class="btn btn-primary">Continue reading &rarr;</a>
+                        <a sec:authorize="hasAnyRole('ROLE_ADMIN')" th:href="@{'/edit-blog-page/' + ${blog.id}}" class="btn btn-secondary">Edit Blog</a>
                     </div>
                 </div>
             </div>

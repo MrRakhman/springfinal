@@ -23,6 +23,10 @@
                 Your have already solved the problem!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" th:if="${param.nocorrectanswer!=null}">
+                Author has not submitted the correct answer!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
             <h2 class="text-center" th:text="${problem.name}"></h2>
             <h8 class="text-center">Author: <b th:text="${problem.author.fullName}"></b></h8>
             <h8 class="text-center">Problem has been solved: <b th:text="${problem.solvedUsersCount}"></b> times</h8>

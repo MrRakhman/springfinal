@@ -13,7 +13,15 @@ public class BlogService {
     @Autowired
     private BlogRepository blogRepository;
 
+    public Blog getBlog(Long id){
+        return blogRepository.findById(id).orElse(null);
+    }
+
     public List<Blog> getBlogsList(){
         return blogRepository.findAll();
+    }
+
+    public void addBlog(Blog blog){
+        blogRepository.save(blog);
     }
 }
